@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Servicios</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="cabecera-interactiva">
+        <h1>Catálogo de Servicios</h1>
+        <div class="contenedor-buscador">
+            <input type="text" id="buscador-servicios" class="buscador" placeholder="Buscar servicios (ej: Diseño, Hosting...)">
+            <select id="filtro-estado" class="buscador selector-estado">
+                <option value="Todos">Todos los estados</option>
+                <option value="Destacado">Solo Destacados</option>
+                <option value="Disponible">Solo Disponibles</option>
+            </select>
+            <select id="filtro-precio" class="buscador selector-estado">
+                <option value="defecto">Ordenar Precio</option>
+                <option value="mayor">Mayor a Menor ($)</option>
+                <option value="menor">Menor a Mayor ($)</option>
+            </select>
+        </div>
+
+        <div class="contenedor-interruptor">
+            <span class="etiqueta-tema">Modo Oscuro</span>
+            <label class="switch">
+                <input type="checkbox" id="toggle-tema">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <div id="contenedor-servicios"></div>
+    <script src="js/app.js"></script>
+</body>
+</html>

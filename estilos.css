@@ -1,0 +1,237 @@
+/* 1. RESET Y ESTILOS BASE (MÁS MODERNOS) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Previene desbordes calculando bordes dentro del ancho total*/
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.5s ease; /* Transición fluida al modo oscuro */
+}
+
+/* 2. CABECERA Y BUSCADORES INTERACTIVOS*/
+.cabecera-interactiva {
+    position: sticky;
+    top: 0;
+    background: radial-gradient(circle, rgb(7, 55, 137), rgb(6, 137, 152), rgb(50, 16, 99));
+    padding: 15px 20px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+}
+
+.cabecera-interactiva h1 {
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.contenedor-buscador {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buscador {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+/* Estilos para listados desplegables */
+.selector-estado {
+    width: auto;
+    margin-left: 15px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    padding: 8px 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-bottom-color 0.3s ease;
+    outline: none;
+}
+
+.selector-estado:hover, .selector-estado:focus {
+    border-bottom-color: white;
+}
+
+.selector-estado option {
+    background-color: #ffffff;
+    color: #333;
+    font-weight: normal;
+    padding: 8px;
+}
+
+/* 3. INTERRUPTOR DE TEMA */
+.contenedor-interruptor {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.etiqueta-tema {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #0c4a6e;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* 4. ÁREA PRINCIPAL Y TARJETAS*/
+#contenedor-servicios {
+    line-height: 1.5; /* Salto de línea más adecuado */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 20px 40px; /* Evita que queden sobre el ras inferior de la pantalla */
+}
+
+.tarjeta {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; 
+    cursor: pointer; 
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.tarjeta:active {
+    transform: scale(0.97); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estado de tarjeta seleccionada */
+.tarjeta.seleccionada {
+    background-color: #f0f9ff; 
+    border: 2px solid #3b82f6; /* Optimizacion visual solo cambia el borde y un background ligero*/
+}
+
+/* 5. MODO OSCURO GLOBAL (DARK MODE)*/
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+/* Modificaciones profundas del header en tema oscuro */
+body.dark-mode .cabecera-interactiva {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    background: radial-gradient(circle, rgb(4, 30, 75), rgb(3, 75, 84), rgb(20, 8, 40));
+}
+
+body.dark-mode .buscador {
+    background: #2a2a2a;
+    color: #b3b3b3;
+}
+
+body.dark-mode .selector-estado option {
+    background-color: #2a2a2a; 
+    color: #b3b3b3;
+}
+
+body.dark-mode .tarjeta {
+    background: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .tarjeta:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .tarjeta.seleccionada {
+    background-color: #0f2c59; /* Azul nocturno profundo */
+    border-color: #3b82f6; 
+}
+
+/* 6. DISEÑO RESPONSIVO (TELÉFONOS MÓVILES)*/
+@media (max-width: 768px) {
+    .contenedor-interruptor {
+        position: relative;
+        right: auto;
+        top: auto;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .contenedor-buscador {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .buscador {
+        max-width: 100%;
+        width: 95%;
+        margin-bottom: 10px;
+    }
+
+    .selector-estado {
+        margin-left: 0;
+        width: 95%;
+        margin-bottom: 15px;
+    }
+
+    .cabecera-interactiva {
+        padding: 15px 10px;
+    }
+}
