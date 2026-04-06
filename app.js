@@ -9,7 +9,7 @@ const servicios = [
 ];
 
 /* 2. SELECCIÓN DE ELEMENTOS DEL DOM */
-// Agrupamos todas las referencias al HTML en un solo objeto.
+// Agrupa todas las referencias al HTML en un solo objeto.
 const DOM = {
     contenedor: document.getElementById("contenedor-servicios"),
     inputBusqueda: document.getElementById("buscador-servicios"),
@@ -23,8 +23,6 @@ const DOM = {
 /**
  * Renderiza la lista de servicios en formato de tarjeta en la pantalla */
 function renderizarServicios(lista) {
-    // OPTIMIZACIÓN DE RENDIMIENTO: Usamos un Fragmento de Documento. 
-    // En lugar de meter tarjeta por tarjeta en la página (es lento), las agrupamos en la memoria y las metemos de golpe al final.
     const fragmento = document.createDocumentFragment();
 
     lista.forEach(servicio => {
@@ -43,7 +41,7 @@ function renderizarServicios(lista) {
         fragmento.appendChild(tarjeta);
     });
 
-    // Limpiamos y metemos todas las tarjetas juntas
+    // Limpia y crea todas las tarjetas juntas
     DOM.contenedor.innerHTML = "";
     DOM.contenedor.appendChild(fragmento);
 }
@@ -58,7 +56,7 @@ function aplicarFiltros() {
 
     // 1. Filtrado
     const filtrados = servicios.filter(servicio => {
-        // Aprovechamos de buscar tanto en el nombre como en la categoría y descripcíon
+        // Aprovecha al buscar ya sea el nombre como en la categoría y descripcíon
         const coincideTexto = servicio.nombre.toLowerCase().includes(texto) ||
             servicio.categoria.toLowerCase().includes(texto) ||
             servicio.descripcion.toLowerCase().includes(texto);
